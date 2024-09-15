@@ -1,0 +1,5 @@
+name = "my-harry-potter-ai"
+compatibility_date = "2023-05-18"
+
+[ai]
+binding = "AI"
