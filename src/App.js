@@ -7,7 +7,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [harryImage, setHarryImage] = useState("");
-  const [catFact, setCatFact] = useState("");
 
   useEffect(() => {
     // Set a default image URL
@@ -50,20 +49,6 @@ function App() {
     }
   };
 
-  const fetchCatFact = async () => {
-    try {
-      const response = await fetch("https://testworker.s777345.workers.dev/");
-      if (!response.ok) {
-        throw new Error("Failed to fetch cat fact");
-      }
-      const data = await response.json();
-      setCatFact(data.catFact);
-    } catch (error) {
-      console.error("Error fetching cat fact:", error);
-      setCatFact("Failed to fetch cat fact. Please try again.");
-    }
-  };
-
   return (
     <div className="App">
       <h1>Chat with Harry Potter AI</h1>
@@ -91,14 +76,6 @@ function App() {
           Send
         </button>
       </form>
-      <div className="cat-fact-section">
-        <button onClick={fetchCatFact}>Get Cat Fact</button>
-        {catFact && (
-          <div className="cat-fact">
-            <strong>Cat Fact:</strong> {catFact}
-          </div>
-        )}
-      </div>
     </div>
   );
 }
